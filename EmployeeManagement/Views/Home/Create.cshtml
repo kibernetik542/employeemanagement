@@ -1,0 +1,67 @@
+﻿@model EmployeeCreateViewModel
+@{
+    ViewBag.Title = "Create Employee";
+}
+
+<form enctype="multipart/form-data" asp-controller="Home" asp-action="Create" method="post" class="mt-2">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="fas fa-file-signature text-info"></span>
+            </div>
+        </div>
+        <input asp-for="Name" class="form-control" placeholder="Name" />
+        @* <span asp-validation-for="Name" class="text-danger"></span> *@
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="fas fa-paper-plane text-primary"></span>
+            </div>
+        </div>
+        <input asp-for="Email" class="form-control" placeholder="Email" />
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="far fa-building text-success"></span>
+            </div>
+        </div>
+        <select asp-for="Department" asp-items="Html.GetEnumSelectList<Dept>()" class="form-control">
+            <option value="">-Please Select Department-</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="fas fa-cloud-upload-alt text-info"></span>
+            </div>
+        </div>
+        <div class="custom-file">
+            <input asp-for="Photos" class="custom-file-input" multiple/>
+            <label class="custom-file-label">Choose file</label>
+        </div>
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <button type="submit" class="btn btn-outline-success btn-block form-control">
+            <i class="fas fa-plus-circle"></i>&nbsp;Create
+        </button>
+    </div>
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.custom-file-input').on("change",
+                    function () {
+                        var fileLabel = $(this).next('.custom-file-label');
+                        var files = $(this)[0].files;
+                        if (files.length > 1) {
+                            fileLabel.html(files.length + ' files selected');
+                        } else if (files.length == 1) {
+                            fileLabel.html(files[0].name);
+                        }
+                    });
+            })
+        </script>
+    }
+</form>
