@@ -4,6 +4,7 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeeManagement.Controllers
 {
@@ -24,7 +25,7 @@ namespace EmployeeManagement.Controllers
         }
         public ViewResult Details(int? id)
         {
-            //throw new Exception();
+            //throw new Exception("Error in details view");
             var employee = _employeeRepository.GetEmployee(id.Value);
             if (employee == null)
             {
