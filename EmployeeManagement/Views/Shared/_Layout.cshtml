@@ -18,37 +18,43 @@
               asp-fallback-test-property="position"
               asp-fallback-test-value="absolute"
               asp-suppress-fallback-integrity="true">
+        <script src="https://kit.fontawesome.com/cc98e6c1c3.js"
+                asp-fallback-href="~/lib/font-awesome/css/all.css"
+                asp-fallback-test-class="sr-only"
+                asp-fallback-test-property="position"
+                asp-fallback-test-value="absolute"
+                asp-suppress-fallback-integrity="true"></script>
     </environment>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-            <i class="fas fa-users"></i>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a asp-controller="Home" asp-action="Index" class="nav-link">List</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="Home" asp-action="Create" class="nav-link">Create</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <div class="container">
-        @RenderBody()
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-users"></i>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Create" class="nav-link">Create</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            @RenderBody()
+        </div>
+        @* @RenderSection("Scripts", false) *@
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", true)
+        }
     </div>
-    @* @RenderSection("Scripts", false) *@
-    @if (IsSectionDefined("Scripts"))
-    {
-        @RenderSection("Scripts", true)
-    }
-</div>
 </body>
 </html>
