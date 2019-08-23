@@ -11,7 +11,9 @@
             </div>
         </div>
         <input asp-for="Name" class="form-control" placeholder="Name" />
-        @* <span asp-validation-for="Name" class="text-danger"></span> *@
+    </div>
+    <div class="input-group mb-1">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -20,6 +22,9 @@
             </div>
         </div>
         <input asp-for="Email" class="form-control" placeholder="Email" />
+    </div>
+    <div class="input-group mb-1">
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -30,6 +35,9 @@
         <select asp-for="Department" asp-items="Html.GetEnumSelectList<Dept>()" class="form-control">
             <option value="">-Please Select Department-</option>
         </select>
+    </div>
+    <div class="input-group mb-1">
+        <span asp-validation-for="Department" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">

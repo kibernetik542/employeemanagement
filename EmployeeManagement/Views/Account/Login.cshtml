@@ -13,6 +13,9 @@
         </div>
         <input asp-for="Email" class="form-control" placeholder="Email" />
     </div>
+    <div class="input-group mb-1">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <div class="input-group-text">
@@ -20,6 +23,9 @@
             </div>
         </div>
         <input asp-for="Password" class="form-control" placeholder="Password" />
+    </div>
+    <div class="input-group mb-1">
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
     <div class="form-group">
         <div class="checkbox">
