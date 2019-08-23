@@ -4,10 +4,11 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagement.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -18,11 +19,14 @@ namespace EmployeeManagement.Controllers
             _employeeRepository = employeeRepository;
             _hostingEnvironment = hostingEnvironment;
         }
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployees();
             return View(model);
         }
+
+        [AllowAnonymous]
         public ViewResult Details(int? id)
         {
             //throw new Exception("Error in details view");
@@ -73,7 +77,7 @@ namespace EmployeeManagement.Controllers
                     }
                     employee.PhotoPath = ProcessUploadedFile(model);
                 }
-                
+
                 _employeeRepository.Update(employee);
                 return RedirectToAction("Index");
             }
