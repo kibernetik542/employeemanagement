@@ -38,6 +38,14 @@
     <div class="input-group mb-1">
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fas fa-city text-info"></i>
+            </div>
+        </div>
+        <input asp-for="City" class="form-control" placeholder="Enter your city" />
+    </div>
     <div>
         <button type="submit" class="btn btn-outline-info btn-block form-control">
             <i class="fas fa-file-signature"></i>&nbsp;Register
