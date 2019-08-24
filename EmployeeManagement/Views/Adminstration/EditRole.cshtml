@@ -1,0 +1,57 @@
+﻿@model EditRoleViewModel
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+    <form method="post" class="mt-2">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="fas fa-user-shield text-primary"></span>
+                </div>
+            </div>
+            <input disabled="disabled" asp-for="Id" class="form-control" placeholder="Role Name" />
+        </div>
+        <div class="input-group mb-1">
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="fas fa-user-shield text-primary"></span>
+                </div>
+            </div>
+            <input asp-for="RoleName" class="form-control" placeholder="Role Name" />
+        </div>
+        <div class="input-group mb-1">
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-outline-info btn-block form-control">
+                <i class="fas fa-pencil-alt"></i>&nbsp;Update
+            </button>
+            <a asp-action="ListRoles" asp-controller="Adminstration" class="btn btn-outline-warning btn-block form-control">
+                <i class="fas fa-ban"></i>&nbsp;Cancel
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Users in this role</h3>
+            </div>
+            <div class="card-body">
+                @if (Model.Users.Any())
+                {
+                    foreach (var user in Model.Users)
+                    {
+                        <h5 class="card-title">@user</h5>
+                    }
+                }
+                <p class="card-title">None at the moment</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary" style="width: auto">Add Users</a>
+                <a href="#" class="btn btn-danger" style="width: auto">Remove Users</a>
+            </div>
+        </div>
+    </form>
