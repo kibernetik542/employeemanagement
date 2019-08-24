@@ -6,7 +6,7 @@
 
 @if (Model.Any())
 {
-    <a class="btn btn-info mt-3 mb-3" style="width: auto" asp-action="CreateRole" asp-controller="Adminstration">Add new role</a>
+    <a class="btn btn-info mt-3 mb-3" style="width: auto" asp-action="CreateRole" asp-controller="Administration">Add new role</a>
     foreach (var role in Model)
     {
         <div class="card mb-3">
@@ -17,7 +17,7 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary" asp-controller="Adminstration"
+                <a class="btn btn-primary" asp-controller="Administration"
                    asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </div>
@@ -34,7 +34,7 @@ else
             <h5 class="card-title">
                 Use the button below to create a role
             </h5>
-            <a asp-controller="Adminstration" asp-action="CreateRole" style="width: auto" class="btn btn-primary">Create Role</a>
+            <a asp-controller="Administration" asp-action="CreateRole" style="width: auto" class="btn btn-primary">Create Role</a>
         </div>
     </div>
 }

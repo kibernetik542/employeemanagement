@@ -31,7 +31,7 @@
             <button type="submit" class="btn btn-outline-info btn-block form-control">
                 <i class="fas fa-pencil-alt"></i>&nbsp;Update
             </button>
-            <a asp-action="ListRoles" asp-controller="Adminstration" class="btn btn-outline-warning btn-block form-control">
+            <a asp-action="ListRoles" asp-controller="Administration" class="btn btn-outline-warning btn-block form-control">
                 <i class="fas fa-ban"></i>&nbsp;Cancel
             </a>
         </div>
@@ -47,11 +47,15 @@
                         <h5 class="card-title">@user</h5>
                     }
                 }
-                <p class="card-title">None at the moment</p>
+                else
+                {
+                    <p class="card-title">None at the moment</p>
+                }
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-primary" style="width: auto">Add Users</a>
-                <a href="#" class="btn btn-danger" style="width: auto">Remove Users</a>
+                <a class="btn btn-primary" asp-controller="Administration"
+                   asp-action="EditUsersInRole" asp-route-roleId="@Model.Id"
+                   style="width: auto">Add or remove Users</a>
             </div>
         </div>
     </form>
