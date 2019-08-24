@@ -60,8 +60,15 @@
                     </li>
                     @if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
-                        <li class="nav-item">
-                            <a asp-controller="Administration" asp-action="ListRoles" class="nav-link">Manage Roles</a>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="False">
+                                Manage
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a asp-controller="Administration" asp-action="ListUsers" class="dropdown-item">Users</a>
+                                <a asp-controller="Administration" asp-action="ListRoles" class="dropdown-item">Roles</a>
+                            </div>
                         </li>
                     }
                 </ul>
