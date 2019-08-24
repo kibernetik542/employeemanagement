@@ -21,8 +21,8 @@
                 <h5 class="card-title">@user.UserName</h5>
             </div>
             <div class="card-footer">
-                <a style="cursor: pointer" class="btn btn-info text-white">Edit</a>
-                <a style="cursor: pointer" class="btn btn-danger text-white">Delete</a>
+                <a style="cursor: pointer" asp-action="EditUser" asp-controller="Administration" asp-route-id="@user.Id" class="btn btn-info text-white">Edit</a>
+                <a style="cursor: pointer" asp-action="DeleteUser" asp-controller="Administration" asp-route-id="@user.Id" class="btn btn-danger text-white">Delete</a>
             </div>
         </div>
     }
