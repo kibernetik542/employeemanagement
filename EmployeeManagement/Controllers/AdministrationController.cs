@@ -2,13 +2,16 @@
 using System.Threading.Tasks;
 using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information    [Authorize(Roles = "Admin,User")] should be both of them
+// on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace EmployeeManagement.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -26,7 +29,6 @@ namespace EmployeeManagement.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
