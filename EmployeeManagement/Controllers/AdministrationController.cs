@@ -15,7 +15,7 @@ using UserRoleViewModel = EmployeeManagement.ViewModels.UserRoleViewModel;
 
 namespace EmployeeManagement.Controllers
 {
-    [Authorize(Roles = "AdminRolePolicy")]
+    //[Authorize(Roles = "AdminRolePolicy")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
