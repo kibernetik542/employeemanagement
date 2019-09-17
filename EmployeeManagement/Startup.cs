@@ -57,6 +57,7 @@ namespace EmployeeManagement
 
             services.AddScoped<IEmployeeRepository, SqlEmployeeRepository>();
             services.AddSingleton<IAuthorizationHandler, CanEditOnlyOtherAdminRolesAndClaimsHandler>();
+            services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
