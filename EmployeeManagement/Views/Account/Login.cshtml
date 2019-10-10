@@ -40,4 +40,18 @@
             <i class="fas fa-sign-in-alt"></i>&nbsp;Login
         </button>
     </div>
+    
 </form>
+<div class="mt-2">
+    <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+        <div>
+            @foreach (var provider in Model.ExternalLogins)
+            {
+                <button type="submit" class="btn btn-outline-danger btn-block form-control" name="provider" 
+                        title="@provider.DisplayName" value="@provider.Name">
+                    <i class="fas fa-share-alt-square"></i>&nbsp;@provider.DisplayName
+                </button>
+            }
+        </div>
+    </form>
+</div>

@@ -16,7 +16,7 @@ namespace EmployeeManagement.Security
                 return Task.CompletedTask;
             }
 
-            string loggedInAdminId = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            string loggedInAdminId = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             string adminIdBeingEdited = authFilterContext.HttpContext.Request.Query["userId"];
 
             if (context.User.IsInRole("Admin") &&
